@@ -1,7 +1,7 @@
 
 package com.example.proyecto.repositorios;
 
-import com.example.proyecto.entidades.Foto;
+import com.example.proyecto.entidades.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface FotoRepositorio extends JpaRepository<Foto, String> {
+public interface FotoRepositorio extends JpaRepository<IntegrantePartido, String> {
     
     
     

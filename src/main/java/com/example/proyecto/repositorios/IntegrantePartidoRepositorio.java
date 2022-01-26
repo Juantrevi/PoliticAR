@@ -5,10 +5,12 @@
  */
 package com.example.proyecto.repositorios;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 /**
  *
  * @author mateo
  */
-public interface IntegrantePartidoRepositorio {
+public interface IntegrantePartidoRepositorio extends JpaRepository<IntegrantePartido, Object>{
     
 }

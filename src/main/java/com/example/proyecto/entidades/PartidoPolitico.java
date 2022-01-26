@@ -28,4 +28,37 @@ public class PartidoPolitico {
     private ArrayList<IntegrantePartido> integrantes;
     @OneToOne
     private Foto foto;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public ArrayList<IntegrantePartido> getIntegrantes() {
+        return integrantes;
+    }
+
+    public void setIntegrantes(ArrayList<IntegrantePartido> integrantes) {
+        this.integrantes = integrantes;
+    }
+
+    public Foto getFoto() {
+        return foto;
+    }
+
+    public void setFoto(Foto foto) {
+        this.foto = foto;
+    }
+    
 }
