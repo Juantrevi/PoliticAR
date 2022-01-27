@@ -1,31 +1,22 @@
 
 import com.example.proyecto.entidades.Foto;
+import java.io.Serializable;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import org.hibernate.annotations.GenericGenerator;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import java.util.*;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
+import org.hibernate.annotations.GenericGenerator;
 /**
  *
  * @author mateo
  */
 @Entity
-public class PartidoPolitico {
+public class Integrante implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
-    @OneToMany
-    private ArrayList<IntegrantePartido> integrantes;
     @OneToOne
     private Foto foto;
 
@@ -43,14 +34,6 @@ public class PartidoPolitico {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public ArrayList<IntegrantePartido> getIntegrantes() {
-        return integrantes;
-    }
-
-    public void setIntegrantes(ArrayList<IntegrantePartido> integrantes) {
-        this.integrantes = integrantes;
     }
 
     public Foto getFoto() {
