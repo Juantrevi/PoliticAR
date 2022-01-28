@@ -8,15 +8,17 @@ import com.example.proyecto.entidades.Partido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author mateo
  */
-public interface PartidoPoliticoRepositorio extends JpaRepository<Partido, Object>{
+@Repository
+public interface PartidoRepositorio extends JpaRepository<Partido, Object>{
     @Query("Select c FROM IntegrantePartido c WHERE c.id = :id")
-    public PartidoPolitico buscarPorId(@Param("id") String nombre);
+    public Partido buscarPorId(@Param("id") String nombre);
     
     @Query("DELETE c FROM IntegrantePartido c WHERE c.id = :id")
-    public PartidoPolitico eliminarPorId(@Param("id") String nombre);
+    public Partido eliminarPorId(@Param("id") String nombre);
 }

@@ -4,19 +4,21 @@
  * and open the template in the editor.
  */
 package com.example.proyecto.repositorios;
-import com.example.proyecto.entidades.IntegrantePartido;
+import com.example.proyecto.entidades.Integrante;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author mateo
  */
-public interface IntegrantePartidoRepositorio extends JpaRepository<IntegrantePartido, Object>{
+@Repository
+public interface IntegranteRepositorio extends JpaRepository<Integrante, Object>{
      @Query("Select c FROM IntegrantePartido c WHERE c.id = :id")
-    public IntegrantePartido buscarPorId(@Param("id") String nombre);
+    public Integrante buscarPorId(@Param("id") String nombre);
     
     @Query("DELETE c FROM IntegrantePartido c WHERE c.id = :id")
-    public IntegrantePartido eliminarPorId(@Param("id") String nombre);
+    public Integrante eliminarPorId(@Param("id") String nombre);
 }
