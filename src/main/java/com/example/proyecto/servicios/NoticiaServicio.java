@@ -22,7 +22,7 @@ public class NoticiaServicio {
     private NoticiaRepositorio noticiaRepositorio;
     @Autowired
     private FotoServicio fotoServicio;
-    
+
     @Transactional
     public void crear(MultipartFile archivo, String titulo, String copete, String cuerpo, String fuente) throws ErrorServicio {
 
@@ -41,7 +41,7 @@ public class NoticiaServicio {
 
         noticiaRepositorio.save(noticia);
     }
-    
+
     @Transactional
     public void modificar(MultipartFile archivo, String id, String titulo, String copete, String cuerpo, String fuente) throws ErrorServicio {
 
@@ -55,8 +55,8 @@ public class NoticiaServicio {
             noticia.setCopete(copete);
             noticia.setCuerpo(cuerpo);
             noticia.setFuente(fuente);
-          // noticia.setBaja(null);
-          // noticia.setFecha(new Date());
+            // noticia.setBaja(null);
+            // noticia.setFecha(new Date());
 
             String idFoto = null;
             if (noticia.getFoto() != null) {
@@ -71,7 +71,7 @@ public class NoticiaServicio {
         }
 
     }
-    
+
     @Transactional
     public void deshabilitar(String id) throws ErrorServicio {
         Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
@@ -84,8 +84,9 @@ public class NoticiaServicio {
             throw new ErrorServicio("No se encontró la noticia solicitada");
         }
     }
-        @Transactional
-        public void habilitar(String id) throws ErrorServicio {
+
+    @Transactional
+    public void habilitar(String id) throws ErrorServicio {
         Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
 
         if (respuesta.isPresent()) {
@@ -96,8 +97,19 @@ public class NoticiaServicio {
             throw new ErrorServicio("No se encontró la noticia solicitada");
         }
     }
-    
-// VALIDAR --------------------------------------------------------------------
+
+    public Noticia buscarPorId(String id) throws ErrorServicio {
+        Optional<Noticia> respuesta = noticiaRepositorio.findById(id);
+        Noticia noticia =null;
+        if (respuesta.isPresent()) {
+            noticia = respuesta.get();
+        }else{
+           throw new ErrorServicio("No se encontró una noticia con ese Id"); 
+        }
+        return noticia;
+        }
+        
+        // VALIDAR --------------------------------------------------------------------
     public void validar(String titulo, String copete, String cuerpo, String fuente) throws ErrorServicio {
 
         if (titulo == null || titulo.isEmpty()) {

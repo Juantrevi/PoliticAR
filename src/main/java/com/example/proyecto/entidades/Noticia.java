@@ -25,6 +25,7 @@ public class Noticia implements Serializable {
     private String titulo;
     private String copete;
     private String cuerpo;
+            
     private String fuente;
     @OneToOne
     private Foto foto;
