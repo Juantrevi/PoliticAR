@@ -16,9 +16,10 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface PartidoRepositorio extends JpaRepository<Partido, Object>{
-    @Query("Select c FROM IntegrantePartido c WHERE c.id = :id")
+    /*
+    @Query("Select c FROM Partido c WHERE c.id = :id")
     public Partido buscarPorId(@Param("id") String nombre);
     
-    @Query("DELETE c FROM IntegrantePartido c WHERE c.id = :id")
-    public Partido eliminarPorId(@Param("id") String nombre);
+    @Query("DELETE c FROM Partido c WHERE c.id = :id")
+    public Partido eliminarPorId(@Param("id") String nombre);*/
 }

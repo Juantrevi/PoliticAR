@@ -35,6 +35,7 @@ public class PartidoServicio {
         partido.setNombre(nombre);
         Foto foto = fService.guardar(archivo);
         partido.setFoto(foto);
+        partRepo.save(partido);
         
     }
     
@@ -61,6 +62,14 @@ public class PartidoServicio {
         if (id == null || id.isEmpty()) {
             throw new ErrorServicio("Debe introducir la id");
         }
+        //Verificacion de la existencia del ID
         
+        Optional<Partido> partC=partRepo.findById(id);
+        if(partC.isPresent()){
+            Partido partido=partC.get();
+            partRepo.deleteById(partido.getId());
+        }else{
+            throw new ErrorServicio("ID del integrante incorrecta"); 
+        }
     }
 }
