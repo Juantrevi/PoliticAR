@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head><link rel="stylesheet" href="resources\static\css/styles.css"></head>
 <br />
 <div class="inner contact">
@@ -6,12 +8,13 @@
                     <a href="/" class="">VOLVER</a>
                     <h1>INGRESAR PARTIDO</h1>
                     <form method="post" action="/registrarP" enctype="multipart/form-data">
+                        <p th:if="${error != null}" th:text="${error}" style="color:red;"></p>
                         <!-- Left Inputs -->
                         <div class="col-xs-6 wow animated slideInLeft" data-wow-delay=".5s">
                             <!-- Name -->
-                            <input type="text" name="nombre" class="form" placeholder="Nombre" />
+                            <input type="text" name="nombre" class="form" placeholder="Nombre" th:value="${nombre}"/>
                             <!-- Email -->
-                            <input type="file" name="archivo" class="form"/>
+                            <input type="file" name="archivo" class="form" th:value="${archivo}"/>
                            
                         </div><!-- End Left Inputs -->
                         <!-- Right Inputs -->
@@ -30,6 +33,7 @@
 
                 </div><!-- End Contact Form Area -->
             </div><!-- End Inner -->
+            </html>
 
 
 
