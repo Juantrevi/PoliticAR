@@ -27,11 +27,13 @@ public class FotoControlador {
     private NoticiaServicio noticiaServicio;
     
     @GetMapping("/Noticia")
-    public ResponseEntity <byte[]> fotoNotica(@RequestParam String id){
+    public ResponseEntity <byte[]> fotoNotica(@RequestParam String id) throws ErrorServicio {
         
         try {
             Noticia noticia= noticiaServicio.buscarPorId(id);
-            
+            if (noticia == null) {
+                throw new ErrorServicio ("La noticia no tiene foto asignada");
+            }
             byte[] foto= noticia.getFoto().getContenido();
             
             HttpHeaders headers = new HttpHeaders();
@@ -42,6 +44,7 @@ public class FotoControlador {
             Logger.getLogger(FotoControlador.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity <> (HttpStatus.NOT_FOUND);
             // min 10:44
+            //http://localhost:8084/Foto/Noticia?id=17cec526-59b6-417d-8f47-10cef202478c
         }
     }
     

@@ -5,6 +5,7 @@ import com.example.proyecto.entidades.Noticia;
 import com.example.proyecto.errores.ErrorServicio;
 import com.example.proyecto.repositorios.NoticiaRepositorio;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,7 @@ public class NoticiaServicio {
         noticia.setFuente(fuente);
         noticia.setBaja(null);
         noticia.setFecha(new Date());
-
+        
         Foto foto = fotoServicio.guardar(archivo);
         noticia.setFoto(foto);
 
@@ -58,7 +59,7 @@ public class NoticiaServicio {
             // noticia.setBaja(null);
             // noticia.setFecha(new Date());
 
-            String idFoto = null;
+            String idFoto = noticia.getFoto().getId() ;
             if (noticia.getFoto() != null) {
                 idFoto = noticia.getFoto().getId();
             }
@@ -109,6 +110,14 @@ public class NoticiaServicio {
         return noticia;
         }
         
+    public List<Noticia> todasNoticias(){
+        
+        List<Noticia> noticias= noticiaRepositorio.findAll();
+        return noticias;
+    }
+    
+    
+    
         // VALIDAR --------------------------------------------------------------------
     public void validar(String titulo, String copete, String cuerpo, String fuente) throws ErrorServicio {
 

@@ -34,7 +34,7 @@ public class FotoServicio {
             }
         }
         return null;
-    }
+        }
     
     @Transactional
     public Foto actualizar(String idFoto, MultipartFile archivo) throws ErrorServicio {

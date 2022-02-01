@@ -22,9 +22,21 @@ public class PortalControlador {
         return "NoticiaCrear.html";
     }
     
-        @GetMapping("/noticia")
-    public String noticia() {
-        return "Noticia.html";
+//        @GetMapping("/noticia")
+//    public String noticia() {
+//        return "Noticia.html";
+//    }
+    
+    @GetMapping("/administrador")
+    public String administrador() {
+        return "administrardor_noticas.html";
     }
 
+//    @GetMapping("/noticiaModificar")
+//    public String modificar() {
+//        return "noticiaModificar.html";
+//   }
+    
+    
+    
 }

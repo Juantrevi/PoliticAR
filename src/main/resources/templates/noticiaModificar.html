@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>PoliticARG - Noticias</title>
+  <title>PoliticARG - Modificar Noticia</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="/">PoliticARG - Noticias</a>
+      <a class="navbar-brand" href="/">PoliticARG</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -37,7 +37,7 @@
             <a class="nav-link" href="/">Inicio</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/nuevaNotica">Administrador</a>
+            <a class="nav-link" href="#">Administrador</a>
           </li>
         </ul>
       </div>
@@ -47,31 +47,57 @@
   <header>
     <div>
       <div>
-        <h1 th:text="${titulo}">  </h1> <!-- Titulo Noticia -->
+        <h1>Administrador de Noticias</h1>
+        <h2></h2>
+         <!-- <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">¡Registrate!</a> -->
       </div>
     </div>
   </header>
 
   <section>
     <div>
-        <h2 th:text="${copete}">  </h2> <!-- Copete -->
-    </div>
-     <div>
-        <h3 th:text="${fecha}">  </h3> <!-- fecha de noticia -->
-     </div>  
       <div>
-        <h3 th:text="${fuente}">  </h3> <!-- Fuente de noticia -->
-      </div>        
-      <div>
-        <img th:src="${'/Foto/Noticia?id='+foto}"  
 
-     width="400"
-     height="341">
-      </div>   <!-- Imangen -->
-      <div>
-        <p th:text="${cuerpo}"> </p> <!-- cuerpo de la noticia -->
-      </div>       
-    
+        <div>
+          <div>
+              <h2>Modificar Noticia</h2>
+            
+            <form action="/actualizar" method="POST" enctype="multipart/form-data">
+                
+              <p th:if="${error != null}" th:text="${error}" style="color:red"></p> 
+              
+              <input type="hidden"  class="form-control"  name="id" th:value="${noticia.id}"/>
+                
+              <label>Titulo</label>
+              <input type="text" class="form-control" name="titulo" th:value="${noticia.titulo}"/>
+              <br>
+              <label>Copete</label>
+              <input type="text" class="form-control" name="copete" th:value="${noticia.copete}" />
+              <br>
+              <label>Fuente</label>
+              <input type="text" class="form-control" name="fuente" spellcheck="true" th:value="${noticia.fuente}" />
+              <br>    
+              <label>Cuerpo</label>
+              <br>
+              <input type="text" class="form-control" name="cuerpo" th:value="${noticia.cuerpo}" size="200" />
+              <br>      
+              <label>Foto</label>
+              <input type="file" class="form-control" name="noticia.archivo"/>
+              <br>
+              <label>Fecha</label>
+              <input type="date" class="form-control" name="noticia.fecha"> 
+
+                  
+              </select>
+                <br>
+              
+              
+              <br/><button type="submit" class="btn btn-primary">Crear</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
 
