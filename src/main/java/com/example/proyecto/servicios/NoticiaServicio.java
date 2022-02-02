@@ -116,6 +116,11 @@ public class NoticiaServicio {
         return noticias;
     }
     
+      public List<Noticia> noticiasHabilitadas(){
+        
+        List<Noticia> noticias= noticiaRepositorio.noticiasHabilitadas();
+        return noticias;
+    }
     
     
         // VALIDAR --------------------------------------------------------------------

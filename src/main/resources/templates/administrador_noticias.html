@@ -61,6 +61,7 @@
                   <tr>
                       <th>Titulo</th>
                       <th>Descripcion</th>
+                    <!--  <th>Baja</th> -->
                       <th>Acciones</th>
                   </tr>
               </thead>
@@ -68,12 +69,15 @@
                   <tr th:each ="noticia : ${noticias}" >
                       <td th:text = "${noticia.titulo}"></td>
                       <td th:text = "${noticia.copete}"></td>
+                    <!--   <td th:text = "${noticia.baja}"></td>-->
                       <td>
                           <a th:href ="@{/noticia1(id=__${noticia.id}__)}" > Abrir   </a>
                           -
                           <a th:href ="@{/modificar(id=__${noticia.id}__)}" > Modficar   </a>
                           -
-                          <a th:href ="@{/noticia1(id=__${noticia.id}__)}" > Eliminar   </a>
+                        <!--  <a th:href ="@{/deshabilitar(id=__${noticia.id}__)}" > Deshabilitar </a> -->
+                          -
+                          <a th:href ="@{/noticia1(id=__${noticia.id}__)}" > Habilitar </a>
                       </td>
                   </tr>
               </tbody>

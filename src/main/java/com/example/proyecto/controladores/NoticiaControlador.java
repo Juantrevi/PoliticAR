@@ -108,4 +108,22 @@ public class NoticiaControlador {
             return "noticiaModificar.html";
         }
     }
+    //Portal de Noticias
+    @GetMapping("/noticias")
+    public String noticias(ModelMap modelo) {
+        List<Noticia> noticias = noticiaServicio.noticiasHabilitadas();
+        modelo.put("noticias", noticias);
+        return "noticias";  
+   }  
+    //Deshabilitar
+    @PostMapping("/deshabilitar")
+    public void habilitar (@RequestParam String id){
+        try {
+            noticiaServicio.deshabilitar(id);
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(NoticiaControlador.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
 }
