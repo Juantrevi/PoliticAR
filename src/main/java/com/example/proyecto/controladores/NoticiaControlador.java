@@ -116,14 +116,31 @@ public class NoticiaControlador {
         return "noticias";  
    }  
     //Deshabilitar
-    @PostMapping("/deshabilitar")
-    public void habilitar (@RequestParam String id){
+    @GetMapping("/deshabilitar")
+    public String deshabilitar (@RequestParam String id){
         try {
             noticiaServicio.deshabilitar(id);
+            return "redirect:/administrador/administrar-noticias";
         } catch (ErrorServicio ex) {
             Logger.getLogger(NoticiaControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return "administrador_noticias";
         }
         
     }
+    
+        //Habilitar
+    @GetMapping("/habilitar")
+    public String habilitar (@RequestParam String id){
+        try {
+            noticiaServicio.habilitar(id);
+            return "redirect:/administrador/administrar-noticias";
+        } catch (ErrorServicio ex) {
+            Logger.getLogger(NoticiaControlador.class.getName()).log(Level.SEVERE, null, ex);
+            return "administrador_noticias";
+        }
+        
+    }
+    
+    
     
 }

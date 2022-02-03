@@ -104,7 +104,7 @@ public class Noticia implements Serializable {
         this.fecha = fecha;
     }
 
-    public Date isBaja() {
+    public Date getBaja() {
         return baja;
     }
 
