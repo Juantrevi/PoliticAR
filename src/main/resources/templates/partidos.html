@@ -18,6 +18,7 @@
     <tbody>
     <tr th:each="partido : ${Partidos}">
         <td th:text="${partido.nombre}"></td>
+        <td th:if="${partido.foto != null}"><img th:src="${'/foto/partidos?id=' + partido.id}" alt=""></img></td>
     </tr>
     </tbody>
 </table>

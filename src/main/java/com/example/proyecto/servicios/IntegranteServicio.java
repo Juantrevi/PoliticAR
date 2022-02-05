@@ -110,6 +110,22 @@ public class IntegranteServicio {
         }
     }
    
+    public Integrante buscarPorID(String id) throws ErrorServicio{
+        if (id == null || id.isEmpty()) {
+            throw new ErrorServicio("Debe introducir la id");
+        }
+        //Verificacion de la existencia del ID
+        
+        Optional<Integrante> intetC=inteRepo.findById(id);
+        if(intetC.isPresent()){
+            Integrante integrante=intetC.get();
+            return integrante;
+        }else{
+            System.out.println("NO SE ENCONTRO");
+            throw new ErrorServicio("ID del integrante incorrecta"); 
+            
+        }
     
    }
+}
 

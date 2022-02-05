@@ -11,7 +11,9 @@
     <thead>
     <tr>
         <th scope="col">Nombre</th>
-        <th scope="col">PartidoID</th>
+        <th scope="col">Partido Nombre</th>
+        <th scope="col">Foto</th>
+        
         
     </tr>
     </thead>
@@ -19,6 +21,7 @@
     <tr th:each="integrante : ${Integrantes}">
         <td th:text="${integrante.nombre}"></td>
         <td th:text="${integrante.partido.nombre}"></td>
+        <td th:if="${integrante.foto != null}"><img th:src="${'/foto/integrantes?id=' + integrante.id}" alt=""></img></td>
         
     </tr>
     </tbody>

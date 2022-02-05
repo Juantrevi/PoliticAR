@@ -72,4 +72,21 @@ public class PartidoServicio {
             throw new ErrorServicio("ID del integrante incorrecta"); 
         }
     }
+        public Partido buscarPorID(String id) throws ErrorServicio{
+        if (id == null || id.isEmpty()) {
+            throw new ErrorServicio("Debe introducir la id");
+        }
+        //Verificacion de la existencia del ID
+        
+        Optional<Partido> partC=partRepo.findById(id);
+        if(partC.isPresent()){
+            Partido partido=partC.get();
+            return partido;
+        }else{
+            
+            throw new ErrorServicio("ID del partido incorrecta"); 
+            
+        }
+        
+    }
 }
