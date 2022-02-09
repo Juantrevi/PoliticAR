@@ -1,108 +1,86 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-<head>
+<head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" >
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <!-- ARCHIVOS CSS PERSONALIZADOS -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/estilos.css}">
 
-  <title>PoliticARG - Administrador de Noticias</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/one-page-wonder.min.css" rel="stylesheet">
-
+<title>Administrador de Noticias | PoliticArg</title>
 </head>
 
-<body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<body id="principal" class="obelisco">
+    
     <div class="container">
-      <a class="navbar-brand" href="/">PoliticARG - Noticias</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/nuevaNotica">Administrador</a>
-          </li>
-        </ul>
-      </div>
+        <div class="ro">
+            <div class="col-12" style="height:10px;">
+
+            </div>
+        </div>
+
     </div>
-  </nav>
+    
+    <div class="container mt-5 py-5 b-5" id="contenido">
+        <div class="row ">
+            <div class="col-12" style="height: 800px;">
 
-  <header>
-    <div>
-      <div>
-        <h1> Administrador de Noticias </h1> <!-- Titulo Noticia -->
-        <!-- th:value="${titulo}" -->
-        <h2></h2>
-         
-      </div>
+                <div class="text-end">
+                    <img th:src="@{/images/logoamarillo.png}" width="300" alt="">
+                </div>
+                <h1 class="fw-bold text-center py-2">Administrador de Noticias</h1>
+
+
+
+                <div class="container">
+                    <a th:href ="@{/app/nuevaNoticia/}" ><button class="btn btn-secondary ">Crear</button></a>
+                    <table class="table table-hover table-sm border border-2 bg-primary " border="1" style="color: aliceblue;">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripcion </th>
+                                <th>Baja</th>
+                                <th> Acciones</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="noticia : ${noticias}">
+                                <td th:text="${noticia.titulo}"></td>
+                                <td th:text="${noticia.copete}"></td>
+                                <td th:text="${noticia.baja}"></td>
+                                <td >
+                                    <a th:href ="@{/noticia1(id=__${noticia.id}__)}" ><button class="btn btn-secondary ">Abrir</button></a>
+                                    <a th:href ="@{/modificar(id=__${noticia.id}__)}" ><button class="btn btn-secondary">Modificar</button></a>
+                                    <a th:href ="@{/deshabilitar(id=__${noticia.id}__)}"><button class="btn btn-secondary">Deshabilitar</button></a>
+                                    <a th:href ="@{/habilitar(id=__${noticia.id}__)}" ><button class="btn btn-secondary">Habilitar</button></a>
+                                </td>
+                             </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-  </header>
-
-  <div>
-      <table><table border="1">
-              <thead>
-                  <tr>
-                      <th>Titulo</th>
-                      <th>Descripcion</th>
-                      <th>Baja</th>
-                      <th>Acciones</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr th:each ="noticia : ${noticias}" >
-                      <td th:text = "${noticia.titulo}"></td>
-                      <td th:text = "${noticia.copete}"></td>
-                      <td th:text = "${noticia.baja}"></td>
-                      <td>
-                          <a th:href ="@{/noticia1(id=__${noticia.id}__)}" > Abrir   </a>
-                          -
-                          <a th:href ="@{/modificar(id=__${noticia.id}__)}" > Modficar   </a>
-                          -
-                         <a th:href ="@{/deshabilitar(id=__${noticia.id}__)}" > Deshabilitar </a> 
-                          -
-                          <a th:href ="@{/habilitar(id=__${noticia.id}__)}" > Habilitar </a>
-                      </td>
-                  </tr>
-              </tbody>
-          </table>
-
-      
-      
-  </div>
-  
-  
 
 
-
-  <!-- Footer -->
-  <footer class="py-5 bg-black">
-    <div class="container">
-      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2022</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
+    <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
 </body>
 
 </html>
