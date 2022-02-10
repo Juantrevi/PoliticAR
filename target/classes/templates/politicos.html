@@ -1,0 +1,643 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://mvnrepository.com/artifact/org.thymeleaf.extras/thymeleaf-extras-springsecurity5
+">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" >
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <!-- ARCHIVOS CSS PERSONALIZADOS -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/estilosLanding.css}">
+
+    <title>Inicio | PoliticArg.com</title>
+
+</head>
+
+
+<body>
+
+    <!------------------------------------------ ventana chat emergente---------------------------->
+
+    <!------------------------------------------ ventana inicial---------------------------->
+
+    <div class="container-xl">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-start " style="height: 36.2px;">
+                    <p class="mt-1 text-primary "> Conoce informacion y noticias de la <strong>Politica
+                            Argentina</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------- contenido aca -------------------------------------->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+            <div class="container-fluid">
+                <a href="#" class="navbar-brand">
+                    <img th:src="@{/images/logoamarillo.png}" alt="logo" width="250px" height="auto">
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedConte">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" style="justify-content: end;" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-weight-bold">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/app/index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Foro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Politicos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Diarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="/app/noticias">Noticias</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="#">Calendario</a>
+                        </li>
+                        <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <li class="nav-item">
+                            <a class="nav-link " th:href="@{/app/administrador/administrar-noticias}">Administrar Noticias</a>
+                        </li>
+                        </div>
+
+
+                        <!-- Nav Estilo Dropdown -->
+                        <!-- 
+                    <li class="nav-item dropdown"> 
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            DropdownxD
+                        </a>    
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Accion</a></li>
+                            <li><a class="dropdown-item" href="#">Accion2</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Accion4</a></li>
+                        </ul>
+                    </li>
+                -->
+
+                    </ul>
+                    <div class="d-flex justifi-content-center">
+                        <input class="form-control me-2 p-2" type="search" placeholder="Buscar PoliticArg.com"
+                            aria-label="Search">
+                        <a th:if="${session.usuariosession == null}" class="btn btn-outline-dark text-light bg-primary btn-lg" th:href="@{/app/login}" >Iniciar
+                            Sesion</a>
+                        <a th:if="${session.usuariosession == null}" class="btn btn-outline-dark  text-light bg-secondary btn-lg"
+                            th:href="@{/usuario/crearUsuario}">Registrarse</a>
+
+                        <a class="btn btn-outline-dark  text-light bg-secondary btn-lg"
+                           th:if="${session.usuariosession != null}" th:text="${'Hola ' + session.usuariosession.nombre + ' ' + session.usuariosession.apellido}">
+                        </a>
+                        <a th:if="${session.usuariosession != null}" class="btn btn-outline-dark  text-light bg-secondary btn-lg"
+                           th:href="@{/logout}">Salir</a>
+
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-------------------------------------------------- Fin nav----------------------------------->
+
+
+
+        <!------------------------------------------ Images----------------------------->
+
+
+
+        <div class="row justify-content-center">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-6 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0 ">
+                                <img class="img-fluid" th:src="@{/images/alberto.png}" alt="Dr. Alberto Ángel FERNÁNDEZ" />
+
+                            </div>
+                            <div class="card-body">
+                                <h1 class=" bg-06 ft-white ">Presidencia de la Nación</h1>
+                                <h2 class=' mt-0 pt-0 ft-lt-black'>
+                                    Dr. Alberto Ángel FERNÁNDEZ
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center" style="align-items: center;">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-5 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" th:src="@{/images/cristina.png}"
+                                    alt="Dra. Cristina Elisabet FERNÁNDEZ DE KIRCHNER" />
+                            </div>
+                            <div class="card-body">
+                                <h2 class="jurbox bg-06 ft-white">Vicepresidencia de la Nación</h2>
+                                <h2 class='jurbox mt-0 pt-0 ft-lt-black'>
+                                    <small>Dra. Cristina Elisabet FERNÁNDEZ DE KIRCHNER</small>
+                                </h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-4 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" th:src="@{/images/003.png}" alt="Dr. Juan Luis MANZUR" />
+                            </div>
+                            <div class="card-body">
+                                <h2 class="jurbox bg-06 ft-white"><small>Jefatura de Gabinete de Ministros</small></h2>
+                                <h3 class='jurbox mt-0 pt-0 ft-lt-black'>
+                                    Dr. Juan Luis MANZUR </h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/004.png}"
+                                    alt="Dr. Julián Andrés DOMÍNGUEZ" />
+
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Agricultura, Ganadería y
+                                        Pesca</small></h3>
+                                <h4 class='jurboxmin  ft-lt-black'>
+                                    Dr. Julián Andrés DOMÍNGUEZ </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/005.png}"
+                                    alt="Lic. Juan CABANDIÉ" />
+                            
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Ambiente y Desarrollo
+                                        Sostenible</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Lic. Juan CABANDIÉ </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/006.png}"
+                                    alt="Lic. Daniel Fernando FILMUS" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Ciencia, Tecnología e
+                                        Innovación</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Lic. Daniel Fernando FILMUS </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/007.png}"
+                                    alt="Prof. Tristán BAUER" />
+                                <!--<img class="img-fluid" src="http://via.placeholder.com/300x180" alt="Card image cap">-->
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Cultura</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Prof. Tristán BAUER </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;"
+                                    src="https://mapadelestado.jefatura.gob.ar/imagenes/perfil/004.png"
+                                    alt="Lic. Jorge Enrique TAIANA" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Defensa</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Lic. Jorge Enrique TAIANA </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/008.png}"
+                                    alt="Dr. Matías Sebastián KULFAS" />
+                                
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Desarrollo Productivo</small>
+                                </h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Matías Sebastián KULFAS </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/009.png}"
+                                    alt="Sr. Juan Horacio ZABALETA" />
+                             
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Desarrollo Social</small>
+                                </h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Sr. Juan Horacio ZABALETA </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/010.png}"
+                                    alt="Ing. Jorge Horacio FERRARESI" />
+                          
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Desarrollo Territorial y
+                                        Hábitat</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Ing. Jorge Horacio FERRARESI </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/011.png}"
+                                    alt="Dr. Martín Maximiliano GUZMÁN" />
+                            
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Economía</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Martín Maximiliano GUZMÁN </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/012.png}"
+                                    alt="Lic. Jaime PERCZYK" />
+                            
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Educación</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Lic. Jaime PERCZYK </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/013.png}"
+                                    alt="Dr. Eduardo Enrique DE PEDRO" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio del Interior</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Eduardo Enrique DE PEDRO </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/014.png}"
+                                    alt="Dr. Martín Ignacio SORIA" />
+                          
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Justicia y Derechos
+                                        Humanos</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Martín Ignacio SORIA </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/015.png}"
+                                    alt="Dra. Elizabeth Victoria GÓMEZ ALCORTA" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de las Mujeres, Géneros y
+                                        Diversidad</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dra. Elizabeth Victoria GÓMEZ ALCORTA </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/016.png}"
+                                    alt="Dr. Gabriel Nicolás KATOPODIS" />
+                               
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Obras Públicas</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Gabriel Nicolás KATOPODIS </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/017.png}"
+                                    alt="Lic. Santiago Andrés CAFIERO" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Relaciones Exteriores,
+                                        Comercio Internacional y Culto</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Lic. Santiago Andrés CAFIERO </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/018.png}"
+                                    alt="Dra. Carla VIZZOTTI" />
+                               
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Salud</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dra. Carla VIZZOTTI </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/019.png}"
+                                    alt="Cdor. y Dr. Aníbal Domingo FERNÁNDEZ" />
+                               
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Seguridad</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Cdor. y Dr. Aníbal Domingo FERNÁNDEZ </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/020.png}"
+                                    alt="Dr. Claudio Omar MORONI" />
+                             
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Trabajo, Empleo y Seguridad
+                                        Social</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Claudio Omar MORONI </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/021.png}"
+                                    alt="Sr. Alexis Raúl GUERRERA" />
+                             
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Transporte</small></h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Sr. Alexis Raúl GUERRERA </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-3 card bg-shadow bg-white m-2 p-1">
+                <a href="#">
+                    <div class="card" style="border:none;">
+                        <div class="card-horizontal d-flex d-inline-block">
+                            <div class="img-square-wrapper mt-1 mb-0">
+                                <img class="img-fluid" style="min-width: 96px;" th:src="@{/images/022.png}"
+                                    alt="Dr. Matías Daniel LAMMENS NÚÑEZ" />
+                              
+                            </div>
+                            <div class="card-body">
+                                <h3 class="jurbox p-1 bg-06 ft-white"><small>Ministerio de Turismo y Deportes</small>
+                                </h3>
+                                <h4 class='jurboxmin mt-1 ft-lt-black'>
+                                    Dr. Matías Daniel LAMMENS NÚÑEZ </h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <!------------------------------------------ SECCION tramites y servicios----------------------------->
+
+        <!-- --------------------------------------------------SECCION footer------------------------------------------------->
+
+
+        <div class="container-xl">
+
+
+            <footer class="site-footer py-0">
+                <div class="container">
+                    <div class="row mb-1">
+                        <div class="col-md-3 mb-5">
+                            <h2>Sobre Nosotros</h2>
+                            <p style="color:  #ececec;">
+                                Esta pagina tiene como finalidad la agrupacion de la informacion publica sobre la
+                                politica
+                                que se encuentra dispersa de diferente manera y que de todas formas es publica. No
+                                existe ningun
+                                motivo politico de fondo.
+                            </p>
+                            <p class="text-center"> <a href="#" style="color:  #ececec;"> Clic aqui para leer mas</a>
+                            </p>
+                        </div>
+                        <div class="col-md-3 mb-1">
+                            <h2 style=>Contacto</h2>
+                            <ul class="list-unstyled footer-link">
+
+                                <li class="d-flex">
+                                    <span class="me-3" style="color:  #ececec;">Email :</span><span class=""
+                                        style="color:  #ececec;">
+                                        info@politicarg.com</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 mb-1">
+                            <h2>Enlaces Rapidos</h2>
+                            <ul class="list-unstyled footer-link">
+                                <li><a href="#" style="color:  #ececec;">Inicio</a></li>
+                                <br>
+                                <li><a href="#" style="color:  #ececec;">Politicos</a></li><br>
+                                <li><a href="#" style="color: #ececec;">Noticias</a></li><br>
+                                <li><a href="#" style="color:  #ececec;">Foro</a></li><br>
+
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3">
+                            <h2>Nuestras Redes Sociales</h2>
+                            <ul class="list-unstyled d-flex ">
+                                <li><a href="#" class="fa-facebook px-3 "><img th:src="@{/images/facebook.png}" alt=""></a>
+                                </li>
+                                <li><a href="#" class="fa-twitter d-auto px-3"> <img th:src="@{/images/twitter.png}"
+                                            alt=""></a></li>
+                                <li><a href="#" class="fa-instagram d-auto px-3"><img th:src="@{/images/instagram.png}" alt=""></a>
+                                </li>
+
+                                <li><a href="#" class=" fa-youtube px-3"><img th:src="@{/images/youtube.png}" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row" style="justify-content: center;">
+                        <div class="col-12 text-md-center text-left "></div>
+                        <p class="">
+                            <img th:src="@{/images/logofinal2.png}" alt="logo" width="250px" height="auto"> Copyright © 2022
+                        </p>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div><!-- fin de container   -->
+    </div>
+
+    <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+    <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+    <script th:src="@{/js/popper.min.js}"></script>
+    <script th:src="@{/libs/universal-parallax/dist/universal-parallax.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+        integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script th:src="@{/js/misscripts.js}"></script>
+
+
+
+</body>
+
+</html>
