@@ -1,0 +1,29 @@
+@charset "UTF-8";
+/*------------------
+ESTILOS DE DISEÑO
+-----------------*/
+html {
+  font-size: 13px; }
+
+#principal{
+  min-height: 100vh;
+  background: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.75)), 
+  url(../images/fondopagina.png) no-repeat center center fixed;
+  background-size: cover;
+}
+.obelisco {
+    background-image: url(../images/obeliscoclaro.jpg)!important;
+    background-position: center center;
+}
+
+.card:hover {
+  -webkit-box-shadow: 0 0 10px blue;
+          box-shadow: 0 0 10px blue; }
+.bg{
+			background-image: url(img/congreso.jpg);
+			background-position: center center;
+		}
+#contenido{
+  background:rgb(255, 255, 255, .80) ;
+}
+/*# sourceMappingURL=estilos.css.map */

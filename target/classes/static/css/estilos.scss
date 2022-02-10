@@ -1,0 +1,124 @@
+
+/*======================================
+ 1       Patrones de colores
+======================================*/
+$primary: #0d6efd;
+$secondary: #0d6efd;
+$texto: rgb(241, 215, 215);
+
+/*=====================================
+ 2 Modificando las varaibles de Boostrap 
+======================================*/
+
+//modificando el mapa de colores de bootstrap 
+$theme-colors:(
+  "primary":   $primary,
+  "secondary":  $secondary
+);
+
+//Personalizando la apariencia de Bootstrap
+$enable-shadows:         true;
+$enable-gradients:      true;
+//$body-color:           $texto;
+ $link-color:          $primary;
+ $link-decoration:     none; 
+ $link-hover-color:    $primary;
+ $link-hover-decoration:   underline; 
+ $border-radius:       .2rem;
+ $border-radius-lg:    .3rem;
+ //$font-family-base:   'Open Sans', sans-serif;
+
+
+//modificando las clases de espaciado de Boostrap 
+$spacer: 1rem;
+$spacers: ( 
+  0: 0,
+  1: $spacer * .25,w
+  2: $spacer * .5,  
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 30,
+);
+
+
+
+
+
+
+/*======================================
+        Importando Boostrap 
+======================================*/
+@import"../libs/bootstrap-5.1.3/scss/bootstrap";
+
+
+/*======================================
+        Estilos para el encabezado y Menu rd-navbar
+======================================*/
+.bloque-buscar{
+  .form-control{
+    border:0; 
+    border-radius: 2px;
+    background-color: darken($secondary, 10%);
+    color: rgb(241, 215, 215);
+    font-size: .9rem;
+    border-bottom:  1px sold lighten($secondary, 15%);
+  }
+  element.style{
+    position: absolute; 
+    right: 0;
+    top: 0; 
+    background: transparent;
+    border: 0; 
+    color:rgb(241, 215, 215); 
+    padding: .3rem .5rem; 
+  }
+}
+ 
+//4.1 Estilos Rd-navbar ( es para la vista movil)  no tocar xd 
+.rd-navbar-fixed .rd-panel-encabezado{
+  position: fixed;
+  width: 100%;
+  z-index: 16;
+}
+
+.rd-navbar-fixed .rd-navbar-toggle{
+  position: absolute;
+  z-index: 17;
+  top: 8.1rem;
+  left: 1rem;
+  background: transparent;
+  border: 0;
+  transform: scale(1.8);
+  padding: 0;
+} 
+.rd-navbar-fixed .rd-navbar-toggle span:after,
+  .rd-navbar-fixed .rd-navbar-toggle span::before,
+  .rd-navbar-fixed .rd-navbar-toggle span{
+    background-color: #0d6efd;;
+  }
+  .rd-navbar-fixed .rd-navbar-nav-wrap{
+    background: #37BBED;
+    top: 5rem;
+  }
+  .rd-navbar-fixed .rd-navbar-nav li > a {
+    display: block;
+    padding: 1rem 1 rem 1rem 2rem;
+    color: black;
+  }
+  .rd-navbar-fixed .rd-navbar-nav li.opened > a,
+   .rd-navbar-fixed .rd-navbar-nav li a:hover {
+    background: transparent;
+    text-decoration: none;
+    color: $primary;
+}
+.rd-navbar-fixed .rd-navbar-nav li.active > a {
+  color: $secondary;
+  background: transparent;
+}
+//5 Estilos de noticias "Carrusel
+.noticias{
+  
+  background: blanchedalmond;
+
+} 
