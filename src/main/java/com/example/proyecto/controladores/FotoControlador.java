@@ -32,10 +32,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/foto")
 public class FotoControlador {
     
-    @Autowired
+    //@Autowired
     private PartidoServicio partS;
-    @Autowired
+    //@Autowired
     private IntegranteServicio inteS;
+    
+    @Autowired
+    public FotoControlador(PartidoServicio partS, IntegranteServicio inteS) {
+        this.partS = partS;
+        this.inteS = inteS;
+    }
+    
+    
     
     
     @GetMapping("/partidos")

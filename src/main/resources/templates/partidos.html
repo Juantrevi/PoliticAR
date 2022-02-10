@@ -5,7 +5,12 @@
 <div class="inner contact">
                 <!-- Form Area -->
                 <div class="contact-form">
-                    <a href="/" class="">VOLVER</a>
+                    <a href="/app/index" class="">VOLVER</a>
+                    <div sec:authorize="hasRole('ROLE_USER')">
+                        
+                            <a class="" th:href="@{/app/partidoC}">Administrar Noticias</a>
+                        
+                        </div>
                     <h1>INTEGRANTES</h1>
               <table class="table">
     <thead>
@@ -24,7 +29,8 @@
 </table>
   
                 </div><!-- End Contact Form Area -->
-            </div><!-- End Inner -->
+            </div><!-- <a th:href ="@{/habilitar(id=__${noticia.id}__)}" > Habilitar </a>
+ -->
             </html>
 
 

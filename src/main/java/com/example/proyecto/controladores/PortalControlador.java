@@ -59,8 +59,8 @@ public class PortalControlador {
         return "integranteC.html";     
     }
     
-    @GetMapping("/integrantes")
-    public String integrantes(Model modelo){
+    @PostMapping("/integrantes")
+    public String integrantes(Model modelo, String id){
         List<Integrante> integrantes = inteR.findAll();
         
         modelo.addAttribute("Integrantes", integrantes);

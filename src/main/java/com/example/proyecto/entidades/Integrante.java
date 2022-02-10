@@ -8,12 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
 /**
  *
  * @author mateo
  */
 @Entity
+@Table(name="Integrante")
 public class Integrante implements Serializable {
     @Id
     @GeneratedValue(generator = "uuid")
