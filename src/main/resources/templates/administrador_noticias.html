@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" >
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <!-- ARCHIVOS CSS PERSONALIZADOS -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/estilos.css}">
+
+<title>Administrador de Noticias | PoliticArg</title>
+</head>
+
+
+<body id="principal" class="obelisco">
+    
+    <div class="container">
+        <div class="ro">
+            <div class="col-12" style="height:10px;">
+
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="container mt-5 py-5 b-5" id="contenido">
+        <div class="row ">
+            <div class="col-12" style="height: 800px;">
+
+                <div class="text-end">
+                    <img th:src="@{/images/logoamarillo.png}" width="300" alt="">
+                </div>
+                <h1 class="fw-bold text-center py-2">Administrador de Noticias</h1>
+
+
+
+                <div class="container">
+                    <a th:href ="@{/app/nuevaNoticia/}" ><button class="btn btn-secondary ">Crear</button></a>
+                    <table class="table table-hover table-sm border border-2 bg-primary " border="1" style="color: aliceblue;">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Titulo</th>
+                                <th>Descripcion </th>
+                                <th>Baja</th>
+                                <th> Acciones</th>
+                             </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="noticia : ${noticias}">
+                                <td th:text="${noticia.titulo}"></td>
+                                <td th:text="${noticia.copete}"></td>
+                                <td th:text="${noticia.baja}"></td>
+                                <td >
+                                    <a th:href ="@{/noticia1(id=__${noticia.id}__)}" ><button class="btn btn-secondary ">Abrir</button></a>
+                                    <a th:href ="@{/modificar(id=__${noticia.id}__)}" ><button class="btn btn-secondary">Modificar</button></a>
+                                    <a th:href ="@{/deshabilitar(id=__${noticia.id}__)}"><button class="btn btn-secondary">Deshabilitar</button></a>
+                                    <a th:href ="@{/habilitar(id=__${noticia.id}__)}" ><button class="btn btn-secondary">Habilitar</button></a>
+                                </td>
+                             </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+</body>
+
+</html>

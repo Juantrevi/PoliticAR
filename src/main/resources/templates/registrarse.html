@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" rel="stylesheet">
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <!-- ARCHIVOS CSS PERSONALIZADOS -->
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <title>Registrarse</title>
+
+</head>
+
+
+<body id="principal">
+    <div class="container">
+        <div class="ro">
+            <div class="col-12" style="height: 80px;">
+
+            </div>
+        </div>
+
+    </div>
+    <div class="container mt-5 py-5 b-5" id="contenido">
+        <div class="row">
+            <div class="pt-5 mt-5 col-7 img-fluid">
+                <img th:src="@{/images/congreso.jpg}" >
+
+            </div>
+            <div class="col-4">
+
+                <div class="text-end">
+                    <img th:src="@{/images/logo.png}" width="48" alt="">
+                </div>
+                <h2 class="fw-bold text-center py-5">Bienvenido</h2>
+                <!-- LOGIN -->
+                <form th:action="@{/usuario/confirmacion}" th:object="${pedido}" method="POST" >
+                    <div class="mb-4">
+                        <label class="form-label" >Nombre</label><br>
+                        <input type="text" placeholder="nombre" name="nombre" class="form_input" th:value="${pedido.nombre}">
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Apellido</label><br>
+                        <input type="text" placeholder="apellido" name="apellido" class="form_input" th:value="${pedido.apellido}">
+                    </div>
+                    <!--
+                    <div class="mb-4">
+                        <label>DNI: <br>
+                             <input type="tel" name="documento" th:value="${dni}"></label>
+                    </div>
+                    -->
+                    <div class="mb-4">
+                        <label class="form-label">Correo Electronico</label>
+                        <input type="email" class="form-control" name="email" th:value="${pedido.email}">
+                    </div>
+                    <!-- opcinal -->
+
+
+                   <!--
+                    <div class="sexo mb-4">
+                        <label>Sexo:</label><br>
+                        <label>Hombre<input type="radio" name="s" class="sex"></label>
+                        <label>Mujer<input type="radio" name="s" class="sex"></label>
+                        <label>No binario<input type="radio" name="s" class="sex"></label>
+                    </div>
+                    -->
+                    <div class="mb-4">
+                        <div class="mb-4">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" th:value="${pedido.password}">
+                        </div>
+                    </div>
+                    <div class="mb-4 form-check">
+                        <input type="checkbox" name="connected" class="form-check-input">
+                        <label class="form-check-label">Mantenerme conectado</label>
+                    </div>
+                    <div class="d-grid text-center ">
+                        <button type="submit" class="bnt btn-primary btn-lg"> Registrarse</button>
+                    </div>
+                    <div class="my-3 text-center">
+                        <span><a href="#">Recuperar Contraseña</a></span>
+                    </div>
+                </form>
+                <!-- LOGIN CON REDES SOCIALES (OPCIONAL// ) 
+				<div class="container w-100 my-5">
+					<div class="row text-center">
+						<div class="col-12">Iniciar Sesion</div>
+					</div>
+					<div class="row">
+
+						<div class="col">
+							<button class="btn btn-outline-primary w-100 my-1">
+
+								<div class="row align-items-center">
+									<img src="img/google.png" width="32" alt="">
+								</div>
+								<div class="col-10 aling-items-center">
+									   Ya tengo cuenta
+								</div>
+							</button>
+						</div>
+					</div>
+				</div>-->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+        integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+</body>
+
+</html>

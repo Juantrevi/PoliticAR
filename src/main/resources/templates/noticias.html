@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" >
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+    <!-- ARCHIVOS CSS PERSONALIZADOS -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/estilosLanding.css}">
+
+    <title>Noticia | PoliticArg.com</title>
+
+</head>
+
+
+<body>
+    <div class="container-xl">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-start " style="height: 36.2px;">
+                    <p class="mt-1 text-primary "> Conoce informacion y noticias de la <strong>Politica
+                            Argentina</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----------------------------------------------- contenido aca -------------------------------------->
+        <nav class="navbar navbar-dark bg-primary navbar-expand-lg py-0">
+            <div class="container-fluid">
+               <a href ="/app/index/" class="navbar-brand"> <button class="btn btn-outline-dark text-light bg-primary d-flex  d-inline "
+                    type="submit">Inicio</button></a>
+                <a href ="/app/index/" class="navbar-brand">
+                    <img th:src="@{/images/logoamarillo.png}" alt="logo" width="250px" height="auto">
+                </a>
+                </ul>
+                <button class="btn btn-outline-dark text-light bg-danger btn-sm " type="submit">Comenta En Foro
+                    PoliticArg</button>
+            </div>
+        </nav>
+        <!----------------------------------------------- Tematicas Noticias -------------------------------------->
+
+        <div class="container-xl">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12  border-bottom border-secondary d-none d-lg-inline"
+                        style="justify-content: center;">
+                        <ul class="  d-flex my-0 py-0" style="list-style: none;">
+                            <li class="  text-start ">
+                                <a class=" nav-link text-dark " style="background-color: transparent;"
+                                    aria-current="page" href="#">Noticias</a>
+                            </li>
+                            <li class=" ml-auto text-start ">
+                                <a class="nav-link text-dark" aria-current="page" href="#">Politicos</a>
+                            </li>
+                            <li class=" ml-auto ">
+                                <a class="nav-link text-dark " href="#">Politica Economica</a>
+                            </li>
+                            <li class=" ml-auto">
+                                <a class="nav-link  text-dark" href="#">Politica Social</a>
+                            </li>
+
+                            <li class=" ml-auto border-left border-dark ">
+                                <a class="nav-link text-dark " href="#"> </a>
+                            </li>
+
+
+
+                            <!-- Nav Estilo Dropdown -->
+                            <li class="nav-item dropdown ml-auto">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    Partidos Politicos
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Frente De Todos</a></li>
+                                    <li><a class="dropdown-item" href="#">Juntos Por el Cambio</a></li>
+
+                                    <li><a class="dropdown-item" href="#">Consenso Federal</a></li>
+                                    <li><a class="dropdown-item" href="#">Frente de Izquierda</a></li>
+                                    <li><a class="dropdown-item" href="#">Frente Despertar</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider text-center"><a href="#">Otros Partidos</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown ml-auto">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                    Nacionales
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Buenos Aires</a></li>
+                                    <li><a class="dropdown-item" href="#">Cordoba</a></li>
+
+                                    <li><a class="dropdown-item" href="#">Rosario</a></li>
+                                    <li><a class="dropdown-item" href="#">Tucuman</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider text-center"><a href="#">Otras Provincias</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- -----------------------------------------------Noticias----------------------------- -->
+
+
+
+                <section  class="noticias text-center py-3" id="imageninicial">
+                    <div  class="container py-3">
+                        <div class="row">
+                            <div th:each="noticia : ${noticias}" class="col-6">
+                                <a th:href ="@{/noticia1(id=__${noticia.id}__)}">  <!-- foto trae el id de la noticia -->
+                                <div class="card">
+                                    <img th:src="${'/Foto/Noticia?id='+noticia.id}" alt="imagen" class="card-img-top">
+                                    <!-- Imangen -->
+                                    <div class="card-body">
+                                        <h3 class="card-title " th:text="${noticia.titulo}"> La Noticia Correspondiente
+                                        </h3> <!-- Titulo Noticia -->
+                                        <h6 class="card-text" th:text="${noticia.copete}">
+                                            </h6>
+                                            <p th:text="${noticia.fecha}" class="text-secondary">Se rellenan solo¿</p>
+                                            <!-- fecha de noticia -->
+                                            <p th:text="${noticia.fuente}" class="text-secondary">Se rellenan solo¿</p>
+                                            <!-- Fuente de noticia -->
+                                    </div>
+                                </div>
+                            </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+
+
+
+            <!-- --------------------------------------------------SECCION footer------------------------------------------------->
+
+
+            <div class="container-xl">
+                <section class="section-subscribe bg-light pb-3">
+                    <div class="container">
+                        <div class="row justify-content-center align-items-center" style="background-color:#adcfe8">
+
+                            <div class="col-md-12 mb-1 my-1">
+                                <h1 class="heading text-light text-center font-weight-bold "
+                                    style="color: #000 !important; ">
+                                    Obtener Noticias &amp; Actualizaciones
+                                </h1>
+                            </div>
+
+                            <div class="col-md-12">
+                                <form action="" method="POST">
+                                    <div class="row">
+                                        <div class="col-md-4 mb-4">
+                                            <input type="text" class="form-control" placeholder="Tu nombre">
+                                        </div>
+
+                                        <div class="col-md-4 mb-4">
+                                            <input type="email" class="form-control" placeholder="Correo Electronico"
+                                                name="" id="">
+                                        </div>
+
+                                        <div class="col-md-4 mb-4">
+                                            <input type="submit" class="btn btn-primary w-100" value="Suscribirse">
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="site-footer py-0">
+                    <div class="container">
+                        <div class="row mb-1">
+                            <div class="col-md-3 mb-5">
+                                <h2>Sobre Nosotros</h2>
+                                <p style="color:  #ececec;">
+                                    Esta pagina tiene como finalidad la agrupacion de la informacion publica sobre la
+                                    politica
+                                    que se encuentra dispersa de diferente manera y que de todas formas es publica. No
+                                    existe ningun
+                                    motivo politico de fondo.
+                                </p>
+                                <p> <a href="#" style="color:  #ececec;"> Clic aqui para leer mas</a></p>
+                            </div>
+                            <div class="col-md-3 mb-1">
+                                <h2 style=>Contacto</h2>
+                                <ul class="list-unstyled footer-link">
+
+                                    <li class="d-flex">
+                                        <span class="me-3" style="color:  #ececec;">Email :</span><span class=""
+                                            style="color:  #ececec;">
+                                            info@politicarg.com</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3 mb-1">
+                                <h2>Enlaces Rapidos</h2>
+                                <ul class="list-unstyled footer-link">
+                                    <li><a href="#" style="color:  #ececec;">Sobre Nosotros</a></li>
+                                    <br>
+                                    <li><a href="#" style="color:  #ececec;">Foro</a></li><br>
+                                    <li><a href="#" style="color: #ececec;">Calendario</a></li><br>
+                                    <li><a href="#" style="color:  #ececec;">Preguntas Frecuentes</a></li><br>
+                                    <li><a href="#" style="color:  #ececec;">Contacto</a></li><br>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-3">
+                                <h2>Nuestras Redes Sociales</h2>
+                                <ul class="list-unstyled d-flex ">
+                                    <li><a href="#" class="fa-facebook "><img src="images/facebook.png " alt=""></a>
+                                    </li>
+                                    <li><a href="#" class="fa-twitter d-auto "> <img src="images/twitter.png"
+                                                alt=""></a></li>
+                                    <li><a href="#" class="fa-instagram d-auto"><img src="images/instagram.png" c
+                                                alt=""></a>
+                                    </li>
+
+                                    <li><a href="#" class=" fa-youtube "><img src="images/youtube.png" alt=""></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-md-center text-left"></div>
+                            <p>politicarg.com todos los derechos reservados<i
+                                    class="fa fa-heart-o">email@hotmail.com</i>
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+
+
+            </div><!-- fin de container   -->
+        </div>
+
+        <!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/popper.min.js"></script>
+        <script src="libs/universal-parallax/dist/universal-parallax.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+            integrity="sha512-fzff82+8pzHnwA1mQ0dzz9/E0B+ZRizq08yZfya66INZBz86qKTCt9MLU0NCNIgaMJCgeyhujhasnFUsYMsi0Q=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="js/misscripts.js"></script>
+
+
+</body>
+
+</html>

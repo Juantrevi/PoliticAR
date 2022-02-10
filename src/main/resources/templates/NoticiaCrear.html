@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="header">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" th:href="@{/images/favicon.ico}">
+    <!-- FUENTES DE GOOGLE FONT -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i" >
+    <!-- ARCHIVOS CSS BOOTSTRAP 4 -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+
+	<!-- ARCHIVOS CSS PERSONALIZADOS -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/estilos.css}">
+	
+	
+</head>
+<title>Crear Noticia | PoliticArg</title>
+<body id="principal" style="background-image:url(images/fondoadmin.jpg);">
+	<div class="container">
+		<div class="ro">
+			<div class="col-12" style="height:10px;">
+                
+			</div>
+		</div>
+		
+	</div>
+	<div class="container mt-5 py-5 b-5" id="contenido">
+		<div class="row ">
+			<div class="col-6 img-fluid " style="background-image: url(/images/obeliscoclaro.jpg); background-position: center center; ">
+				
+			</div>
+			<div class="col-6">
+
+				<div class="text-end">
+					<img th:src="@{/images/logoamarillo.png}" width="220" alt="">
+				</div>
+                <h1 class="fw-bold text-center py-2">Crear Noticia</h1>
+				<h2 class="fw-bold text-start py-5">Nueva Noticia</h2>
+				<!-- LOGIN -->
+
+				
+				<form th:action="@{/app/nuevaNoticia/crear}" method="POST" enctype="multipart/form-data">
+					<p th:if="${error != null}" th:text="${error}" style="color:red"></p> 
+
+					<div class="mb-4">
+						<label for="titulo" class="form-label">Titulo</label>
+						<input type="text" class="form-control" name="titulo" th:value="${titulo}"/>
+					</div>
+					<div class="mb-4">
+						<div class="mb-4">
+							<label for="copete" class="form-label">Copete</label>
+							<input type="text" class="form-control" name="copete" th:value="${copete}" />
+						</div>
+					</div>
+                    <div class="mb-4">
+						<div class="mb-4">
+							<label for="fuente" class="form-label">Fuente</label>
+							<input type="text" class="form-control" name="fuente" th:value="${fuente}" />
+						</div>
+					</div>
+                    
+                    <label>Cuerpo</label>
+                    <textarea type="text" class="form-control height-xl display-2" name="cuerpo" th:value="${cuerpo}"  ></textarea>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-6 text-center">
+                    <label class="">Foto</label>
+                    <input type="file" class="form-control " name="archivo" style="height:40px;"/>
+                    </div>
+                </div>
+             
+
+					
+					<div class="d-grid text-center pt-2">
+						<button type="submit" class="bnt btn-primary btn-lg"> Crear</button>
+					</div>
+                    
+				</form>
+                
+			</div>
+		</div>
+	</div>
+
+
+	<!-- ARCHIVOS BOOTSTRAP JAVASCRIPT -->
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
