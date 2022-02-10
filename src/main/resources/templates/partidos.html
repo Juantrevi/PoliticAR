@@ -30,7 +30,7 @@
         <td th:if="${partido.foto != null}"><img th:src="${'/Foto/partidos?id=' + partido.id}" alt=""></img></td>
         <div sec:authorize="hasRole('ROLE_ADMIN')">
         <td><a th:href ="@{/app/eliminarP(id=__${partido.id}__)}" ><button class="btn btn-secondary">ELIMINAR</button></a></td></div>
-        <td><a href="/app/index" ><button class="btn btn-secondary">+info</button></a></td>
+        <td><a href="/app/politicos" ><button class="btn btn-secondary">+info</button></a></td>
         
         </tr>
     </tbody>

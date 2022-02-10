@@ -59,6 +59,10 @@ public class PortalControlador {
     @Autowired
     private PartidoRepositorio partR;
     
+    @GetMapping("/politicos")
+    public String politicos(){
+        return "politicos.html";     
+    }
     
        @GetMapping("/partidos")
     public String partidos(Model modelo){
